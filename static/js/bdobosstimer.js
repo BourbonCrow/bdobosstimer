@@ -91,6 +91,7 @@ function setCalendar() {
         },
         timezone: 'local', // 'America/Los Angeles','Europe/Amsterdam'
         ignoreTimezone: false,
+        firstDay: 1,
         navLinks: false, // can click day/week names to navigate views
         editable: false,
         selectable: false,
