@@ -72,9 +72,6 @@ function addEvents() {
 function setCalendar() {
     calendar = $('#eu-full-calendar-instance').fullCalendar({
         header: {
-            // left: 'prev,next today',
-            // center: 'title',
-            // right: 'agendaDay,agendaWeek,month',
             left: '',
             center: '',
             right: ''
@@ -82,10 +79,8 @@ function setCalendar() {
         slotLabelFormat: [
             'HH:mm' // top level of text
           ],
-        // height: 644,
-        contentHeight: 595,
-        // contentHeight: 1123,
-        // aspectRatio: 2,
+        allDaySlot: false,
+        contentHeight: 549,
         events: events,
         defaultView: 'agendaWeek',
         timeFormat: 'HH:mm',
@@ -174,7 +169,10 @@ function startTime() {
 }
 
 // Entry point ----------------------------------------------------------------
-addEvents();
-setCalendar();
-checkNextBoss();
-startTime();
+$(document).ready(function () {
+    $('.dropdown').dropdown();
+    addEvents();
+    setCalendar();
+    checkNextBoss();
+    startTime();
+});
