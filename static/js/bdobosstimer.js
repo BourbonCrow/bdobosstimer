@@ -79,12 +79,16 @@ function setCalendar() {
             center: '',
             right: ''
         },
+        slotLabelFormat: [
+            'HH:mm' // top level of text
+          ],
         // height: 644,
         contentHeight: 595,
         // contentHeight: 1123,
         // aspectRatio: 2,
         events: events,
         defaultView: 'agendaWeek',
+        timeFormat: 'HH:mm',
         nowIndicator: true,
         dayClick: function (date) {
             console.log('dayClick', date.format());
@@ -140,7 +144,7 @@ function checkNextBoss() {
     }
 
     console.log(next_boss);
-    document.getElementById('eu-1-next-boss-content-time').innerHTML = next_boss[0].time.local().format('dddd, MMMM Do YYYY @ hh:mm:ss A');
+    document.getElementById('eu-1-next-boss-content-time').innerHTML = next_boss[0].time.local().format('dddd, Do MMMM YYYY @ HH:mm');
     document.getElementById("eu-1-next-boss-content-image").src = next_boss[0].image;
     document.getElementById('eu-1-next-boss-content-name').innerHTML = next_boss[0].name;
     document.getElementById('eu-1-next-boss-content-meta-location-link').setAttribute("href", location_base_url + boss_mapping[next_boss[0]['type']]['meta']['location']);
@@ -159,7 +163,7 @@ function startTime() {
     s = checkTime(s);
 
     var current_time = moment();
-    document.getElementById('current-time').innerHTML = current_time.format('hh:mm:ss A');
+    document.getElementById('current-time').innerHTML = current_time.format('HH:mm:ss');
 
     var next_boss_eta = msToTime(next_boss[0].time.diff(current_time));
     document.getElementById('eu-1-next-boss-content-eta').innerHTML = next_boss_eta;
