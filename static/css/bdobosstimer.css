@@ -66,20 +66,29 @@ body {
 .next-boss-content-meta-link {
     color: black;
 }
-
-.fc-time-grid-event.fc-short .fc-title {
-    display: block !important;
-    padding: 0 0 0 1px !important;
+/*My own messy css, don't judge me*/
+.fc-view-container *, .fc-view-container *:before, .fc-view-container *:after {
+    text-align: right;
 }
-.fc-event {
-line-height: 0.9;
-text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
-}
-
 .fc-time-grid-event.fc-short .fc-time:after {
+    padding: 0px 0px 0px 2px !important;
     content: "" !important;
 }
 
-.fc-title {
+.fc-time-grid-event.fc-short .fc-title {
+    display: block !important;
+    padding: 0px 0px 0px 2px !important;
+    font-size: 1.0em;
     font-weight: bold;
+    text-align: left;
 }
+
+.fc-event {
+    line-height: 0.8;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+}
+
+.fc-time-grid .fc-now-indicator-line {
+    box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.8);
+}
+
