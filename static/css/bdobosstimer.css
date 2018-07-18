@@ -66,3 +66,19 @@ body {
 .next-boss-content-meta-link {
     color: black;
 }
+
+.fc-time-grid-event.fc-short .fc-title {
+    display: block !important;
+}
+.fc-event {
+line-height: 0.9;
+text-shadow: 2px 2px 4px rgba(0,0,0,0.8) !important;
+}
+
+.fc-time-grid-event.fc-short .fc-time:after {
+    content: "" !important;
+}
+
+.fc-title {
+    font-weight: bold;
+}
