@@ -1,14 +1,24 @@
 // https://fullcalendar.io/docs
 // http://ui.toast.com/tui-calendar
 // -- https://nhnent.github.io/tui.calendar/latest/index.html
-
+function isDST(t) { 
+    var jan = new Date(t.getFullYear(), 0, 1);
+    var jul = new Date(t.getFullYear(), 6, 1);
+    return Math.min(jan.getTimezoneOffset(), jul.getTimezoneOffset()) == t.getTimezoneOffset();
+  }
 // Globals --------------------------------------------------------------------
 var calendar = null;
 var events = [];
 var current_time = moment();
 var image_path = 'static/images/';
 var next_boss = [];
-var utc_offset = 2; // GMT-0700
+d = new Date();
+d.setMinutes(d.getMinutes() + d.getTimezoneOffset()); // UTC
+if (isDST(d)) {
+ var utc_offset = 2; // UTC+2 (Daylight Saving)
+} else {
+ var utc_offset = 1; // UTC+1
+}
 var location_base_url = 'http://www.somethinglovely.net';
 var database_base_url = 'https://bddatabase.net'; // 'https://bdocodex.com'
 
