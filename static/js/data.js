@@ -281,6 +281,7 @@ var raw_events = [
     {
         type: 'maint',
         start: {days: 3, hours: 12, minutes: 0, seconds: 0},
+        end: {days: 3, hours: 15, minutes: 0, seconds: 0},
     },
     // 16:00
     {

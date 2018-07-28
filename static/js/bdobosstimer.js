@@ -53,25 +53,31 @@ function addEvents() {
         var display_short = boss_mapping[raw_events[i]['type']]['display']['short'];
         // Previous week
         start = moment().utcOffset(utc_offset).startOf('week').subtract(7, 'days').add(raw_events[i]['start']);
+        end = moment().utcOffset(utc_offset).startOf('week').subtract(7, 'days').add(raw_events[i]['end']);
         event = {
             'title': display_short,
             'start': start,
+            'end': end,
             'color': color,
         };
         events.push(event);
         // Current week
         start = moment().utcOffset(utc_offset).startOf('week').add(raw_events[i]['start']);
+        end = moment().utcOffset(utc_offset).startOf('week').add(raw_events[i]['end']);
         event = {
             'title': display_short,
             'start': start,
+            'end': end,
             'color': color,
         };
         events.push(event);
         // Next week
         var start = moment().utcOffset(utc_offset).startOf('week').add(7, 'days').add(raw_events[i]['start']);
+        var end = moment().utcOffset(utc_offset).startOf('week').add(7, 'days').add(raw_events[i]['end']);
         event = {
             'title': display_short,
             'start': start,
+            'end': end,
             'color': color,
         };
         events.push(event);
@@ -180,7 +186,10 @@ function startTime() {
 
 // Entry point ----------------------------------------------------------------
 $(document).ready(function () {
-    $('.dropdown').dropdown();
+    $('.ui.dropdown').dropdown({
+        action: 'nothing'
+      });
+      $('.ui.checkbox').checkbox();
     addEvents();
     setCalendar();
     checkNextBoss();
